@@ -7,6 +7,4 @@
 
 import Foundation
 
-var difficulty: Difficulty = .easy
-
 easyGame()
