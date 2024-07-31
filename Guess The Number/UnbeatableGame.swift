@@ -1,33 +1,28 @@
 //
-//  HardGame.swift
+//  UnbeatableGame.swift
 //  Guess The Number
 //
-//  Created by Dustin Nuzzo on 29.07.24.
+//  Created by Dustin Nuzzo on 7/31/24.
 //
+
 import Foundation
 
-func hardGame() {
-    let randomNumber: Int = Int.random(in: 1...100)
+func unbeatableGame() {
+    let randomNumber: Int = Int.random(in: 1...1000)
     
     var tries: Int = 0 {
         didSet {
-            print("Current tries: \(tries). \(15 - tries) tries left.")
+            print("Current tries: \(tries). \(20 - tries) tries left.")
         }
     }
     
-    var solved: Bool = false {
-        didSet {
-            tries += 1
-            print("You guessed right! Next round starts!")
-            unbeatableGame()
-        }
-    }
+    var solved: Bool = false
     
     
-    print("Im thinking of a number between 1 and 100... can you guess it in 15 tries?")
+    print("Im thinking of a number between 1 and 1000... can you guess it in 20 tries?")
     while !solved {
         if let input = readLine() {
-            if !(tries < 14) && input != String(randomNumber)  {
+            if !(tries < 19) && input != String(randomNumber)  {
                 print("You couldnt guess the number with 15 tries. The number was \(randomNumber).")
                 break
             } else if input < String(randomNumber) {
@@ -37,7 +32,9 @@ func hardGame() {
                 print("Your number is too big.")
                 tries += 1
             } else {
+                print("You beat all levels! Congratulations!")
                 solved = true
+                break
             }
         }
     }
